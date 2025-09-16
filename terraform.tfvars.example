@@ -1,0 +1,35 @@
+# Copy this file: cp terraform.tfvars.example terraform.tfvars
+# Edit with your actual values
+
+# Region
+region = "ap-southeast-3"
+
+# Network - Replace with your actual VPC and subnet IDs
+vpc_id = "vpc-xxxxxxxxxxxxxxxxx"
+subnet_ids = [
+  "subnet-xxxxxxxxxxxxxxxxx",
+  "subnet-yyyyyyyyyyyyyyyyy"
+]
+
+# Database
+db_name     = "wordpress_db"
+db_username = "wordpress_user"
+db_password = "ChangeMe123!@#"
+
+# Redis
+redis_password = "ChangeMe456!@#"
+
+# WordPress
+wp_admin_password = "ChangeMe789!@#"
+
+# SSH
+key_pair_name    = "your-keypair-name"
+allowed_ssh_cidr = "0.0.0.0/0"
+
+# Instance sizes
+ecs_instance_type    = "ecs.g3il.large"
+db_instance_class    = "rds.mysql.d1.n.1c1g"
+redis_shard_capacity = 512
+
+# CDN (optional)
+cdn_domain = ""
