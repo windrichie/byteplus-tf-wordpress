@@ -189,6 +189,21 @@ sudo -u www-data wp user list
 sudo -u www-data wp user update admin --user_pass='NewPassword123'
 ```
 
+**Wrong WordPress URLs (redirecting to HTTPS or wrong domain):**
+```bash
+# Update site URLs to correct domain
+sudo -u www-data wp option update siteurl 'http://your-correct-domain.com'
+sudo -u www-data wp option update home 'http://your-correct-domain.com'
+
+# Verify the URLs are now correct
+sudo -u www-data wp option get siteurl
+sudo -u www-data wp option get home
+
+# Clear cache after URL changes
+sudo -u www-data wp cache flush
+sudo -u www-data wp redis flush
+```
+
 **Redis connection issues:**
 ```bash
 # Check Redis status

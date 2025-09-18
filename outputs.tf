@@ -7,12 +7,12 @@ output "alb_dns_name" {
 
 output "wordpress_url" {
   description = "The URL to access the WordPress site"
-  value       = "http://${byteplus_alb.wordpress_alb.id}.${var.region}.byteplusalb.com"
+  value       = var.cdn_domain != "" ? "http://${var.cdn_domain}" : "http://${byteplus_alb.wordpress_alb.id}.${var.region}.byteplusalb.com"
 }
 
 output "wordpress_admin_url" {
   description = "The URL to access the WordPress admin portal"
-  value       = "http://${byteplus_alb.wordpress_alb.id}.${var.region}.byteplusalb.com/wp-admin"
+  value       = var.cdn_domain != "" ? "http://${var.cdn_domain}/wp-admin" : "http://${byteplus_alb.wordpress_alb.id}.${var.region}.byteplusalb.com/wp-admin"
 }
 
 output "database_endpoint" {
